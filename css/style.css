@@ -1,0 +1,115 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(
+        180deg,
+        #FFB366 0%,
+        burlywood 100%
+        )
+}
+header {
+    display: flex;
+    box-shadow: 0 4px 15px rgba(255, 106, 0, 0.3);
+    background: linear-gradient(
+    135deg,
+    #FF5A1F,
+    #FF7A00,
+    #FF5A1F
+);
+    
+}
+
+.logo {
+    margin: 8%;
+    object-fit: contain;
+    width: 8vw;
+    max-width: 90px;
+    min-width: 45px;
+    height: auto;
+    clip-path: circle(46.7% at 50% 50%);
+}
+
+.temporizador {
+    display: flex;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+}
+
+.pomodoro {
+    height: 100px;
+    min-height: 70vh;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid coral;
+    gap: 20px;
+    width: 100%;
+    height: 100%;
+    max-width: 450px;
+    max-height: 460px;
+    background-color: sandybrown;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.2);
+}
+
+.butoes {
+    display: flex;
+    gap: 15px;
+}
+
+.tempo {
+    margin-bottom: 35px;
+    font-size: 90px;
+    
+    text-shadow: 0 2px 8px rgba(0, 0, 0, .2);
+}
+
+.butoes button{
+    
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    background-color: lightgreen;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    transition: 0.3s;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,.2);
+    width: 100%;
+    height: 100%;
+    max-height: 70px;
+    max-width: 130px;
+}
+
+.butoes :hover {
+    background-color: orangered;
+    transform: scale(1.05);
+}
+
+.butoes button:active {
+    transform: scale(0.96);
+}
+
+@media (max-width: 760px) {
+    .card {
+        width: 90%;
+        height: 90%;
+        max-width: 380px;
+        max-height: 390px;
+    }
+}
