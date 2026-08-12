@@ -35,17 +35,24 @@ function resettimer() {
     atualizarTimer()
 }
 
+
 function pause() {
     clearInterval(intervalo)
     atualizarTimer() 
+    iniciar.textContent = "Iniciar"
 }
 
 const iniciar = document.getElementById("iniciar");
 
 iniciar.addEventListener("click", () => {
     console.log("iniciar timer");
-    iniciarTimer();
-
+    if (iniciar.textContent == "Iniciar"){
+        iniciarTimer()
+        iniciar.textContent = "Pausar"
+    }
+    else {
+        pause()
+    }
 });
 
 const reset = document.getElementById("reset")
@@ -55,9 +62,4 @@ reset.addEventListener ("click" , () => {
     resettimer()
 })
 
-const pausar = document.getElementById("pausar")
 
-pausar.addEventListener("click" , () => {
-    console.log("pause")
-    pause()
-})
