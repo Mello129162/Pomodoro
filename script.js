@@ -2,9 +2,17 @@ console.log("script carregou")
 let tempoinicial = 25 * 60;
 let tempo = tempoinicial
 
+
+let numcontador = 0
 const timer = document.getElementById("timer");
+const contador = document.getElementById("contador")
 
 let intervalo
+
+function atualizarcontador() {
+
+    contador.textContent = numcontador+"/5 Pomodoro"
+}
 
 function atualizarTimer() {
     let minutos = Math.floor(tempo / 60);
@@ -18,6 +26,8 @@ function timerzero(){
     if (tempo ===0) {
         clearInterval(intervalo)
         tempo = tempoinicial
+        numcontador = numcontador + 1
+        atualizarcontador()
         atualizarTimer()
     }
 }
