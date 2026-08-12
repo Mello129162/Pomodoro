@@ -12,11 +12,20 @@ function atualizarTimer() {
 
     timer.textContent = `${minutos}:${String(segundos).padStart(2, "0")}`;
 };
+atualizarTimer()
 
+function timerzero(){
+    if (tempo ===0) {
+        clearInterval(intervalo)
+        tempo = tempoinicial
+        atualizarTimer()
+    }
+}
 function iniciarTimer() {
     intervalo = setInterval(() => {
         tempo--;
         atualizarTimer();
+        timerzero()
     }, 1000);
 }
 
