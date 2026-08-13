@@ -1,13 +1,15 @@
-console.log("script carregou")
+console.log("script carregou");
 let tempoinicial = 25 * 60;
-let tempo = tempoinicial
+let tempo = tempoinicial;
+let descansotimer = 5 * 60;
 
-
-let numcontador = 0
+let numcontador = 0;
 const timer = document.getElementById("timer");
-const contador = document.getElementById("contador")
+const contador = document.getElementById("contador");
+const indicador = document.getElementById("WorknBreak")
 
-let intervalo
+
+let intervalo;
 
 function atualizarcontador() {
 
@@ -22,12 +24,28 @@ function atualizarTimer() {
 };
 atualizarTimer()
 
+function descanso(){
+    if (indicador.textContent == "Trabalhar"){
+        tempo = descansotimer
+        indicador.textContent = "Intervalo"
+    } 
+    else{
+        tempo = tempoinicial
+        indicador.textContent = "Trabalhar"
+        numcontador = numcontador - 1
+        atualizarcontador()
+    }
+}
+
+
 function timerzero(){
     if (tempo ===0) {
         clearInterval(intervalo)
         tempo = tempoinicial
         numcontador = numcontador + 1
+        iniciar.textContent = "Iniciar"
         atualizarcontador()
+        descanso()
         atualizarTimer()
     }
 }
