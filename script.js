@@ -78,6 +78,7 @@ function resetall(){
     atualizarTimer()
     atualizarcontador()
     iniciar.textContent = "Iniciar"
+    indicador.textContent = "Trabalhar"
 }
 
 function pula(){
@@ -120,4 +121,10 @@ const skip = document.getElementById("skip")
 
 skip.addEventListener("click",() => {
     pula()
+})
+
+const reset_all = document.getElementById("resetall")
+
+reset_all.addEventListener("click", () => {
+    resetall()
 })
