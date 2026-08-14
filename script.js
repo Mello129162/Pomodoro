@@ -4,11 +4,17 @@ let tempo = tempoinicial;
 let descansotimer = 5 * 60;
 
 let contadorinicial = 0
+let contadorlimite = 5
 let numcontador = contadorinicial;
 const timer = document.getElementById("timer");
 const contador = document.getElementById("contador");
 const indicador = document.getElementById("WorknBreak")
 
+function limite() {
+    if (numcontador == contadorlimite) {
+        numcontador = contadorinicial
+    }
+}
 
 let intervalo;
 
@@ -44,6 +50,7 @@ function timerzero(){
         clearInterval(intervalo)
         tempo = tempoinicial
         numcontador = numcontador + 1
+        limite()
         iniciar.textContent = "Iniciar"
         atualizarcontador()
         descanso()
@@ -91,6 +98,7 @@ function pula(){
     else {
         indicador.textContent = "Trabalhar"
         numcontador = numcontador + 1
+        limite()
         tempo = tempoinicial
         atualizarcontador()
     }
