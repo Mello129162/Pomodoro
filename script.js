@@ -3,7 +3,8 @@ let tempoinicial = 25 * 60;
 let tempo = tempoinicial;
 let descansotimer = 5 * 60;
 
-let numcontador = 0;
+let contadorinicial = 0
+let numcontador = contadorinicial;
 const timer = document.getElementById("timer");
 const contador = document.getElementById("contador");
 const indicador = document.getElementById("WorknBreak")
@@ -70,6 +71,31 @@ function pause() {
     iniciar.textContent = "Iniciar"
 }
 
+function resetall(){
+    clearInterval(intervalo)
+    tempo = tempoinicial
+    numcontador = contadorinicial
+    atualizarTimer()
+    atualizarcontador()
+    iniciar.textContent = "Iniciar"
+}
+
+function pula(){
+    clearInterval(intervalo)
+    atualizarTimer()
+    iniciar.textContent = "Iniciar"
+    if (indicador.textContent == "Trabalhar"){
+        descanso()
+    }
+    else {
+        indicador.textContent = "Trabalhar"
+        numcontador = numcontador + 1
+        tempo = tempoinicial
+        atualizarcontador()
+    }
+    atualizarTimer()
+}
+
 const iniciar = document.getElementById("iniciar");
 
 iniciar.addEventListener("click", () => {
@@ -90,4 +116,8 @@ reset.addEventListener ("click" , () => {
     resettimer()
 })
 
+const skip = document.getElementById("skip")
 
+skip.addEventListener("click",() => {
+    pula()
+})
