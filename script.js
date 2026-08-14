@@ -67,8 +67,14 @@ function iniciarTimer() {
 
 function resettimer() {
     clearInterval(intervalo)
-    tempo = tempoinicial
+    if (indicador.textContent == "Trabalhar") {
+        tempo = tempoinicial
+    }
+    else {
+        tempo = descansotimer
+    }
     atualizarTimer()
+    iniciar.textContent = "Iniciar"
 }
 
 
